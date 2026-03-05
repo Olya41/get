@@ -1,4 +1,3 @@
-import RPi.GPIO as GPIO
 import time
 import matplotlib.pyplot as plt
 from r2r_adc import R2R_ADC
@@ -24,7 +23,7 @@ duration = 3.0
 try:
     start = time.time()
     while time.time() - start < duration:
-        time_values.append(time.time() - duration)
+        time_values.append(time.time() - start)
         voltage_values.append(adc.get_sc_voltage())
     plot_voltage_vs_time(time_values, voltage_values, dynamic_range)
 finally:
