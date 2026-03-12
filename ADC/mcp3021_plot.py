@@ -15,6 +15,7 @@ try:
     while time.time() - start < duration:
         voltage_values.append(adc.get_voltage())
         time_values.append(time.time() - start)
+        time.sleep(0.001)
     plot_voltage_and_hist(time_values, voltage_values, dynamic_range)
 finally:
     adc.deinit()

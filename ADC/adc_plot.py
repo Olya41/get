@@ -46,7 +46,7 @@ def plot_voltage_and_hist(time_arr, voltage, max_voltage):
 
 if __name__ == "__main__":
 
-    dynamic_range = 3.2
+    dynamic_range = 3.3
     adc = R2R_ADC(dynamic_range, compare_time=0.0001)
     voltage_values = []
     time_values = []

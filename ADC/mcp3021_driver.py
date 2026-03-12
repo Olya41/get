@@ -14,8 +14,8 @@ class MCP3021:
 
     def get_number(self):
         data = self.bus.read_word_data(self.address, 0)
-        upper_data_byte = data >> 8
-        lower_data_byte = data & 0xFF
+        lower_data_byte = data >> 8
+        upper_data_byte = data & 0xFF
         number = (upper_data_byte << 6) | (lower_data_byte >> 2)
         if self.verbose:
             print(f"Принятые данные: {data}, Старший байт: {upper_data_byte:x}, Младший байт: {lower_data_byte:x}, Число: {number}")
@@ -26,7 +26,7 @@ class MCP3021:
 
 
 if __name__ == "__main__":
-    dynamic_range = 5.2
+    dynamic_range = 3.3
     adc = MCP3021(dynamic_range, verbose=True)
     try:
         while True:
