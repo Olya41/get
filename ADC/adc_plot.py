@@ -3,13 +3,43 @@ import matplotlib.pyplot as plt
 from r2r_adc import R2R_ADC
 
 
-def plot_voltage_vs_time(time, voltage, max_voltage):
-    plt.figure(figsize=(10,6))
-    plt.plot(time, voltage)
+def plot_voltage_vs_time(time_arr, voltage, max_voltage):
+    plt.figure(figsize=(10, 6))
+    plt.plot(time_arr, voltage)
     plt.xlabel("time, s")
     plt.ylabel("voltage, V")
     plt.title("U(t)")
     plt.grid(True)
+    plt.show()
+
+
+def plot_sampling_period_hist(time_arr):
+    plt.figure(figsize=(10, 6))
+    sampling_periods = []
+    for i in range(1, len(time_arr)):
+        sampling_periods.append(time_arr[i] - time_arr[i - 1])
+    plt.hist(sampling_periods)
+    plt.show()
+
+
+def plot_voltage_and_hist(time_arr, voltage, max_voltage):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+    ax1.plot(time_arr, voltage)
+    ax1.set_xlabel("time, s")
+    ax1.set_ylabel("voltage, V")
+    ax1.set_title("U(t)")
+    ax1.grid(True)
+
+    sampling_periods = []
+    for i in range(1, len(time_arr)):
+        sampling_periods.append(time_arr[i] - time_arr[i - 1])
+    ax2.hist(sampling_periods)
+    ax2.set_xlabel("sampling period, s")
+    ax2.set_ylabel("count")
+    ax2.set_title("Sampling period distribution")
+
+    plt.tight_layout()
     plt.show()
 
 
