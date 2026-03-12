@@ -3,7 +3,7 @@ from mcp3021_driver import MCP3021
 from adc_plot import plot_voltage_and_hist
 
 
-dynamic_range = 3.2
+dynamic_range = 3.3
 adc = MCP3021(dynamic_range)
 voltage_values = []
 time_values = []
