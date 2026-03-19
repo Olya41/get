@@ -26,7 +26,7 @@ class MCP3021:
 
 
 if __name__ == "__main__":
-    dynamic_range = 3.3
+    dynamic_range = 5.0
     adc = MCP3021(dynamic_range, verbose=True)
     try:
         while True:
